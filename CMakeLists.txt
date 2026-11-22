@@ -27,4 +27,8 @@ if(ALICE_BUILD_TEST)
   target_link_libraries(test_hle_bios PRIVATE alice)
   add_test(NAME hle_bios_smoke COMMAND test_hle_bios)
 
+  add_executable(test_bios tests/test_bios.cpp)
+  target_link_libraries(test_bios PRIVATE alice)
+  add_test(NAME bios_smoke COMMAND test_bios)
+
 endif()
