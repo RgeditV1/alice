@@ -18,7 +18,13 @@ endif()
 option(ALICE_BUILD_TEST "Build unit tests" ON)
 if(ALICE_BUILD_TEST)
   enable_testing()
-  add_executable(test_memory test/test_memory.cpp)
+
+  add_executable(test_memory tests/test_memory.cpp)
   target_link_libraries(test_memory PRIVATE alice)
   add_test(NAME memory_smoke COMMAND test_memory)
+
+  add_executable(test_hle_bios tests/test_hle_bios.cpp)
+  target_link_libraries(test_hle_bios PRIVATE alice)
+  add_test(NAME hle_bios_smoke COMMAND test_hle_bios)
+
 endif()
